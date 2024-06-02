@@ -48,12 +48,12 @@
             event.preventDefault();
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-            // Check for Instagram and TikTok browsers
-            const isInstagram = userAgent.includes('Instagram');
             const isTikTok = userAgent.includes('TikTok');
+            const isInstagram = userAgent.includes('Instagram');
 
-            if (isInstagram || isTikTok) {
-                window.open(url, '_blank');
+            if (isTikTok || isInstagram) {
+                // Open in default browser for TikTok and Instagram
+                window.location = url;
             } else if (/android/i.test(userAgent)) {
                 // Android case
                 window.location.href = `intent://${url.replace(/^https?:\/\//, '')}#Intent;scheme=https;package=com.android.chrome;end;`;
@@ -68,4 +68,3 @@
     </script>
 </body>
 </html>
-
