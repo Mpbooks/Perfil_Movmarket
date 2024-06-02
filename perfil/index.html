@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Perfil Movmarket</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="assets/img/Design_sem_nome-removebg-preview.png" alt="Minha foto de Perfil">
+            <h1>@movmarkett</h1>
+            <p>Site de Vendas online seguro</p>
+        </header>
+
+        <section class="botoes-links">
+            <a href="https://www.movmarket.online/" class="link" onclick="openInBrowser(event, 'https://www.movmarket.online/')">
+                <button class="degrade">
+                    <span>Movmarket</span>
+                    <i class="ri-shopping-bag-4-fill"></i>
+                </button>
+            </a>
+            <a href="https://www.instagram.com/movmarkett?igsh=MWVnajZxYWdyaHM5aw==" class="link" onclick="openInBrowser(event, 'https://www.instagram.com/movmarkett?igsh=MWVnajZxYWdyaHM5aw==')">
+                <button class="degrade">
+                    <span>Instagram</span>
+                    <i class="ri-instagram-line"></i>
+                </button>
+            </a>
+            <a href="https://api.whatsapp.com/send/?phone=5521980258526&text&type=phone_number&app_absent=0" class="link" onclick="openInBrowser(event, 'https://api.whatsapp.com/send/?phone=5521980258526&text&type=phone_number&app_absent=0')">
+                <button class="degrade">
+                    <span>WhatsApp</span>
+                    <i class="ri-whatsapp-line"></i>
+                </button>
+            </a>
+        </section>
+        <footer>
+            <a href="https://www.tiktok.com/@movmarkett?_t=8mqtkYWWnUz&_r=1" class="btn-footer degrade" onclick="openInBrowser(event, 'https://www.tiktok.com/@movmarkett?_t=8mqtkYWWnUz&_r=1')"><i class="ri-tiktok-line"></i></a>
+            <a href="mailto:suporte@movmarket.online" class="btn-footer degrade" onclick="openInBrowser(event, 'mailto:suporte@movmarket.online')"><i class="ri-mail-fill"></i></a>
+        </footer>
+    </div>
+
+    <script>
+        function openInBrowser(event, url) {
+            event.preventDefault();
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if (/android/i.test(userAgent)) {
+                // Android case
+                window.location.href = `intent://${url.replace(/^https?:\/\//, '')}#Intent;scheme=https;package=com.android.chrome;end;`;
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                // iOS case
+                window.open(url, '_blank');
+            } else {
+                // Fallback for other browsers
+                window.open(url, '_blank');
+            }
+        }
+    </script>
+</body>
+</html>
